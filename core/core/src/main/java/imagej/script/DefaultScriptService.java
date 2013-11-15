@@ -121,6 +121,7 @@ public class DefaultScriptService extends
 	public Object eval(final File file) throws FileNotFoundException,
 		ScriptException
 	{
+		// CTR START HERE: file -> ScriptInfo and just run it
 		final String fileExtension = FileUtils.getExtension(file);
 		final ScriptLanguage language = getByFileExtension(fileExtension);
 		if (language == null) {
@@ -138,6 +139,7 @@ public class DefaultScriptService extends
 	public Object eval(final String filename, final Reader reader)
 		throws IOException, ScriptException
 	{
+		// CTR START HERE: filename+reader -> ScriptInfo and just run it
 		final String fileExtension = FileUtils.getExtension(filename);
 		final ScriptLanguage language = getByFileExtension(fileExtension);
 		if (language == null) {

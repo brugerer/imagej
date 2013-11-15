@@ -65,6 +65,8 @@ public interface ScriptService extends SingletonService<ScriptLanguage> {
 	 */
 	final static String CONTEXT = "IJ";
 
+	// -- Scripting languages --
+
 	/** Gets the index of available scripting languages. */
 	ScriptLanguageIndex getIndex();
 
@@ -85,6 +87,24 @@ public interface ScriptService extends SingletonService<ScriptLanguage> {
 
 	/** TODO */
 	ScriptLanguage getByName(final String name);
+
+	// -- Scripts --
+
+	/** Gets the list of all available scripts). */
+	List<ScriptInfo> getScripts();
+
+	/**
+	 * Gets the {@link ScriptInfo} metadata for the script at the given path, or
+	 * null if none.
+	 */
+	ScriptInfo getScript(String scriptPath);
+
+	// START HERE consider whether to have run methods like ModuleService and
+	// CommandService.
+	// - Do we want to move CommandService#run(ModuleInfo) out of there, since it
+	//   has nothing to do with commands?
+	// - Do we want to be able to run script strings? or only files & paths &
+	//   readers (& StringReader is OK)? better be consistent...
 
 	/** TODO */
 	Object eval(final File file) throws FileNotFoundException, ScriptException;
